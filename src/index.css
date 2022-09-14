@@ -1,3 +1,8 @@
+@font-face {
+	font-family: Arciform Sans;
+	src: url("./fonts/Arciform.ttf") ;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,24 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arciform Sans;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
 }

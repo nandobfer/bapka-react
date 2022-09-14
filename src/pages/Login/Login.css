@@ -1,0 +1,135 @@
+:root {
+    --background-color: #eee643;
+    --primary-color: #094e93;
+    --primary-color-dark: #074583;;
+}
+
+.background {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background-color);
+    z-index: -5;
+}
+
+.main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-color);
+    width: 60vw;
+    height: 36vw;
+    border-radius: 5vw;
+    padding: 1vw;
+    color: white;
+}
+
+.main-container > h2 {
+    font-size: 1.7vw;
+    font-weight: normal;
+}
+
+.logo {
+    object-fit: contain;
+    height: 7vw;
+}
+
+.forms-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--primary-color-dark);
+    width: 100%;
+    height: 100%;
+    border-radius: 4vw;
+    margin-top: 1vw;
+}
+
+.forms-container > hr {
+    background-color: var(--primary-color);
+    height: 90%;
+    width: 1.3vw;
+    margin: auto 0;
+    border: 0;
+    border-radius: 2vw;
+}
+
+.circle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 1.8vw;
+    top: 1.8vw;
+    border: 0.4vw solid white;
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.circle:hover {
+    border-color: var(--background-color);
+    color: var(--background-color);
+}
+
+.circle > p {
+    font-size: 2vw;
+}
+
+.floating-img {
+    object-fit: contain;
+    position: absolute;
+    width: 100vw;
+    height: auto;
+}
+
+.top-floating-img {
+    top: 0;
+}
+
+.bottom-floating-img {
+    bottom: 0;
+    transform: scaleY(-1) scaleX(-1);
+}
+
+.floating-circle {
+    width: auto;
+}
+
+#circle-1 {
+    height: 22vw;
+    left: 1.1vw;
+    bottom: 2vw;
+}
+
+#circle-2 {
+    height: 8.5vw;
+    top: 4.4vw;
+    left: 22vw;
+}
+
+#circle-3 {
+    height: 19vw;
+    top: 3.5vw;
+    right: 13.6vw;
+    z-index: -1;
+}
+
+#circle-4 {
+    height: 15vw;
+    bottom: 0vw;
+    right: 11vw;
+    z-index: -1;
+}
+
+#circle-5 {
+    height: 13vw;
+    bottom: 2.5vw;
+    right: 37vw;
+    z-index: -1;
+}

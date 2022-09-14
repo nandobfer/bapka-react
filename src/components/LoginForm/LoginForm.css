@@ -1,0 +1,53 @@
+:root {
+    --recovery-text-color: #eee643;
+    --input-background-color: #fffffff0;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2vw 2.5vw;
+    width: 100%;
+}
+
+.login-form > h1 {
+    font-size: 2.6vw;
+    font-weight: normal;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1vw;
+    margin: 2vw 0 0.4vw;
+}
+
+.input-field > input {
+    width: 100%;
+    height: 2.8vw;
+    border-radius: 2vw;
+    border: none;
+    outline: none;
+    padding: 0 1.5vw;
+    background-color: var(--input-background-color);
+    font-size: 1.5vw;
+}
+
+.login-form > p {
+    color: var(--recovery-text-color);
+    font-size: 1vw;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.login-form > p:hover {
+    text-decoration: underline;
+}
+
+.button-container {
+    width: 100%;
+    height: 3vw;
+    margin: 1vw;
+}
