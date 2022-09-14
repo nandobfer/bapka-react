@@ -1,7 +1,25 @@
+import { useFormik } from 'formik';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Login.css';
 
 export const Login = () => {
+
+    const formik = useFormik({
+        initialValues: {
+            user_cliente: '',
+            password_cliente: '',
+            user_parceiro: '',
+            password_parceiro: ''
+        },
+        onSubmit: values => {
+            alert(JSON.stringify(values, null, 2))
+        }
+    });
+
+    const onFormSubmitParceiro = (event) => {
+        alert('API Parceiro')
+    }
+
     return (
         <div className="background">
             <div className="main-container">
@@ -10,15 +28,17 @@ export const Login = () => {
 
                 <div className="forms-container">
                     <LoginForm 
-                        type = 'Cliente'
+                        title = 'Cliente'
                         placeholder ='Telefone'
                         recovery = {true}
+                        formik={formik}
                         />
                     <hr />
                     <LoginForm 
-                        type = 'Parceiro'
+                        title = 'Parceiro'
                         placeholder='E-mail'
                         recovery = {false}
+                        formik={formik}
                     />
                 </div>
                 <div className="circle">
