@@ -1,11 +1,11 @@
 import axios from 'axios';
+import config from '../../config.json'
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Login.css';
 
 export const Login = () => {
-
     const [errorCliente, setErrorCliente] = useState('');
     const [errorParceiro, setErrorParceiro] = useState('');
 
@@ -25,7 +25,7 @@ export const Login = () => {
         console.log(values);
 
         // post request na api
-        axios.post('http://localhost:5000/login/', values).then((response) => {
+        axios.post(`${config.api}/login/`, values).then((response) => {
             console.log(response.data)
 
             // renderiza mensagem de erro de login
