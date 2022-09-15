@@ -1,24 +1,42 @@
+import axios from 'axios';
 import { useFormik } from 'formik';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Login.css';
 
 export const Login = () => {
 
-    const formik = useFormik({
+    const formik_cliente = useFormik({
         initialValues: {
             user_cliente: '',
             password_cliente: '',
-            user_parceiro: '',
-            password_parceiro: ''
         },
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2))
+            // alert(JSON.stringify(values, null, 2))
+            values.type = 'cliente';
+            console.log(values);
+            axios.post('http://localhost:5000/login/', values).then((response) => {
+                console.log(`Sucesso: ${response.data}`)
+
+            }).catch((error) => {
+                console.log(`Erro: ${error}`)
+            })
         }
     });
 
-    const onFormSubmitParceiro = (event) => {
-        alert('API Parceiro')
-    }
+    const formik_parceiro = useFormik({
+        initialValues: {
+            user_parceiro: '',
+            password_parceiro: '',
+        },
+        onSubmit: values => {
+            axios.get('http://localhost:5000/get/').then((response) => {
+                console.log(response);
+
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
+    });
 
     return (
         <div className="background">
@@ -31,14 +49,14 @@ export const Login = () => {
                         title = 'Cliente'
                         placeholder ='Telefone'
                         recovery = {true}
-                        formik={formik}
+                        formik={formik_cliente}
                         />
                     <hr />
                     <LoginForm 
                         title = 'Parceiro'
                         placeholder='E-mail'
                         recovery = {false}
-                        formik={formik}
+                        formik={formik_parceiro}
                     />
                 </div>
                 <div className="circle">
