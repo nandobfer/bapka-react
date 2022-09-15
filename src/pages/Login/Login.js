@@ -11,6 +11,8 @@ export const Login = () => {
 
     const tryLogin = (values) => {
         // alert(JSON.stringify(values, null, 2))
+
+        // zera o texto de erro renderizado
         if (values.user_cliente) {
             setErrorCliente('');
             values.type = 'cliente';
@@ -21,14 +23,20 @@ export const Login = () => {
 
         }
         console.log(values);
+
+        // post request na api
         axios.post('http://localhost:5000/login/', values).then((response) => {
             console.log(response.data)
+
+            // renderiza mensagem de erro de login
             if (response.data.error) {
                 if (values.user_cliente) {
                     setErrorCliente(response.data.error);
                 } else {
                     setErrorParceiro(response.data.error);
                 }
+            } else {
+                // ir pra próxima página
             };
 
         }).catch((error) => {
