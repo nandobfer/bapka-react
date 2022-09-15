@@ -87,6 +87,7 @@
     position: absolute;
     width: 100vw;
     height: auto;
+    pointer-events: none;
 }
 
 .top-floating-img {
