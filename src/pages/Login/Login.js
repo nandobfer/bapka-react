@@ -52,6 +52,10 @@ export const Login = () => {
         onSubmit: values => tryLogin(values)
     });
 
+    const onHelpClick = () => {
+        alert('popup de ajuda')
+    }
+
     return (
         <div className="background">
             <div className="main-container">
@@ -75,7 +79,7 @@ export const Login = () => {
                         error={errorParceiro}
                     />
                 </div>
-                <div className="circle">
+                <div className="circle" onClick={onHelpClick}>
                     <p>?</p>
                 </div>
             </div>

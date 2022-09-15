@@ -4,6 +4,11 @@ import './LoginForm.css'
 export const LoginForm = ({title, placeholder, recovery, formik, error}) => {
     const user_value = `user_${title.toLowerCase()}`
     const password_value = `password_${title.toLowerCase()}`
+
+    const onRecoverPasswordClick = () => {
+        alert('ir pra recuperação de senha')
+    }
+
     return (
         <form onSubmit={formik.handleSubmit} className='login-form'>
             <h1>{title}</h1>
@@ -26,7 +31,7 @@ export const LoginForm = ({title, placeholder, recovery, formik, error}) => {
                     required 
                 />
             </div>
-            <p className={`${recovery ? 'visible link' : 'hidden link'}`}>Esqueci minha senha</p>
+            <p className={`${recovery ? 'visible link' : 'hidden link'}`} onClick={onRecoverPasswordClick}>Esqueci minha senha</p>
             <div className="button-container">
                 <CustomButton text='Entrar' />
             </div>
