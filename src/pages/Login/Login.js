@@ -1,26 +1,47 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Login.css';
 
 export const Login = () => {
+
+    const [errorCliente, setErrorCliente] = useState('');
+    const [errorParceiro, setErrorParceiro] = useState('');
+
+    const tryLogin = (values) => {
+        // alert(JSON.stringify(values, null, 2))
+        if (values.user_cliente) {
+            setErrorCliente('');
+            values.type = 'cliente';
+            
+        } else {
+            setErrorParceiro('');
+            values.type = 'parceiro';
+
+        }
+        console.log(values);
+        axios.post('http://localhost:5000/login/', values).then((response) => {
+            console.log(response.data)
+            if (response.data.error) {
+                if (values.user_cliente) {
+                    setErrorCliente(response.data.error);
+                } else {
+                    setErrorParceiro(response.data.error);
+                }
+            };
+
+        }).catch((error) => {
+            console.log(`Erro: ${error}`);
+        });
+    }
 
     const formik_cliente = useFormik({
         initialValues: {
             user_cliente: '',
             password_cliente: '',
         },
-        onSubmit: values => {
-            // alert(JSON.stringify(values, null, 2))
-            values.type = 'cliente';
-            console.log(values);
-            axios.post('http://localhost:5000/login/', values).then((response) => {
-                console.log(response.data)
-
-            }).catch((error) => {
-                console.log(`Erro: ${error}`)
-            })
-        }
+        onSubmit: values => tryLogin(values)
     });
 
     const formik_parceiro = useFormik({
@@ -28,16 +49,7 @@ export const Login = () => {
             user_parceiro: '',
             password_parceiro: '',
         },
-        onSubmit: values => {
-            values.type = 'parceiro';
-            console.log(values);
-            axios.post('http://localhost:5000/login/', values).then((response) => {
-                console.log(response.data)
-
-            }).catch((error) => {
-                console.log(error);
-            });
-        }
+        onSubmit: values => tryLogin(values)
     });
 
     return (
@@ -52,6 +64,7 @@ export const Login = () => {
                         placeholder ='Telefone'
                         recovery = {true}
                         formik={formik_cliente}
+                        error={errorCliente}
                         />
                     <hr />
                     <LoginForm 
@@ -59,6 +72,7 @@ export const Login = () => {
                         placeholder='E-mail'
                         recovery = {false}
                         formik={formik_parceiro}
+                        error={errorParceiro}
                     />
                 </div>
                 <div className="circle">

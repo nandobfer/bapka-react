@@ -1,7 +1,7 @@
 import { CustomButton } from '../CustomButton/CustomButton'
 import './LoginForm.css'
 
-export const LoginForm = ({title, placeholder, recovery, formik}) => {
+export const LoginForm = ({title, placeholder, recovery, formik, error}) => {
     const user_value = `user_${title.toLowerCase()}`
     const password_value = `password_${title.toLowerCase()}`
     return (
@@ -26,10 +26,11 @@ export const LoginForm = ({title, placeholder, recovery, formik}) => {
                     required 
                 />
             </div>
-            <p className={`${recovery ? 'visible' : 'hidden'}`}>Esqueci minha senha</p>
+            <p className={`${recovery ? 'visible link' : 'hidden link'}`}>Esqueci minha senha</p>
             <div className="button-container">
                 <CustomButton text='Entrar' />
             </div>
+            <p className='error-text'>{error}</p>
         </form>
     )
 }
