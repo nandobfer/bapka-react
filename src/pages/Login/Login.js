@@ -15,7 +15,7 @@ export const Login = () => {
             values.type = 'cliente';
             console.log(values);
             axios.post('http://localhost:5000/login/', values).then((response) => {
-                console.log(`Sucesso: ${response.data}`)
+                console.log(response.data)
 
             }).catch((error) => {
                 console.log(`Erro: ${error}`)
@@ -29,8 +29,10 @@ export const Login = () => {
             password_parceiro: '',
         },
         onSubmit: values => {
-            axios.get('http://localhost:5000/get/').then((response) => {
-                console.log(response);
+            values.type = 'parceiro';
+            console.log(values);
+            axios.post('http://localhost:5000/login/', values).then((response) => {
+                console.log(response.data)
 
             }).catch((error) => {
                 console.log(error);
