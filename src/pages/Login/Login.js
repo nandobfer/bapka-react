@@ -37,6 +37,7 @@ export const Login = () => {
                 }
             } else {
                 // ir pra próxima página
+                alert('login success: proxima pagina')
             };
 
         }).catch((error) => {
