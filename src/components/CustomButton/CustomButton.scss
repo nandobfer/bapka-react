@@ -1,11 +1,13 @@
+@import '/src/colors';
+
 .button {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: #094e93;
-    border: 0.45vw solid #eee643;
+    background-color: $primary-color;
+    border: 0.45vw solid $background-color;
     border-radius: 5vw;
     transition: 0.3s;
     cursor: pointer;
@@ -14,7 +16,7 @@
 }
 
 .button:hover {
-    border-color: #094e93;
-    background-color: #eee643;
-    color: #094e93;
+    border-color: $primary-color;
+    background-color: $background-color;
+    color: $primary-color;
 }

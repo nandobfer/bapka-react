@@ -3,7 +3,7 @@ import config from '../../config.json'
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
-import './Login.css';
+import './Login.scss';
 
 export const Login = () => {
     const [errorCliente, setErrorCliente] = useState('');

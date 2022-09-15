@@ -1,5 +1,5 @@
 import { CustomButton } from '../CustomButton/CustomButton'
-import './LoginForm.css'
+import './LoginForm.scss'
 
 export const LoginForm = ({title, placeholder, recovery, formik, error}) => {
     const user_value = `user_${title.toLowerCase()}`

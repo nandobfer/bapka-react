@@ -1,4 +1,4 @@
-import './CustomButton.css'
+import './CustomButton.scss'
 
 export const CustomButton = ({text, action}) => {
     return (

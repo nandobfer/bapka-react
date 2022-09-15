@@ -1,8 +1,4 @@
-:root {
-    --background-color: #eee643;
-    --primary-color: #094e93;
-    --primary-color-dark: #074583;;
-}
+@import "/src/colors";
 
 .background {
     position: relative;
@@ -11,8 +7,7 @@
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background-color: var(--background-color);
-    /* z-index: -5; */
+    background-color: $background-color;
 }
 
 .main-container {
@@ -20,18 +15,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--primary-color);
+    background-color: $primary-color;
     width: 60vw;
     height: 36vw;
     border-radius: 5vw;
     padding: 1vw;
     color: white;
     z-index: 2;
-}
 
-.main-container > h2 {
-    font-size: 1.7vw;
-    font-weight: normal;
+    h2 {
+        font-size: 1.7vw;
+        font-weight: normal;
+    }
 }
 
 .logo {
@@ -42,21 +37,22 @@
 .forms-container {
     display: flex;
     justify-content: space-between;
-    background-color: var(--primary-color-dark);
+    background-color: $primary-color-dark;
     width: 100%;
     height: 100%;
     border-radius: 4vw;
     margin-top: 1vw;
+
+    hr {
+        background-color: $primary-color;
+        height: 90%;
+        width: 1.3vw;
+        margin: auto 0;
+        border: 0;
+        border-radius: 2vw;
+    }
 }
 
-.forms-container > hr {
-    background-color: var(--primary-color);
-    height: 90%;
-    width: 1.3vw;
-    margin: auto 0;
-    border: 0;
-    border-radius: 2vw;
-}
 
 .circle {
     position: absolute;
@@ -71,16 +67,17 @@
     height: 3vw;
     cursor: pointer;
     transition: 0.3s;
+
+    p {
+        font-size: 2vw;
+    }
 }
 
 .circle:hover {
-    border-color: var(--background-color);
-    color: var(--background-color);
+    border-color: $background-color;
+    color: $background-color;
 }
 
-.circle > p {
-    font-size: 2vw;
-}
 
 .floating-img {
     object-fit: contain;
