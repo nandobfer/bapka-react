@@ -6,7 +6,7 @@ export const LoginForm = ({title, placeholder, recovery, formik, error}) => {
     const password_value = `password_${title.toLowerCase()}`
 
     const onRecoverPasswordClick = () => {
-        alert('ir pra recuperação de senha')
+        window.location.href = '/recuperar_senha/'
     }
 
     return (
