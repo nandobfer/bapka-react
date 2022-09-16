@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Login.scss';
 import { useState } from 'react';
-import axios from 'axios';
+import { api } from '../../api'
 import config from '../../config.json'
 import { useNavigate } from "react-router-dom"
 import { MainContainer } from '../../components/MainContainer';
@@ -35,7 +35,7 @@ export const Login = () => {
         console.log(values);
     
         // post request na api
-        axios.post(`${config.api}/login/`, values).then((response) => {
+        api.post(`/login/`, values).then((response) => {
             console.log(response.data)
     
             // renderiza mensagem de erro de login
