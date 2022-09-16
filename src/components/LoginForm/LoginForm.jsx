@@ -1,6 +1,7 @@
 import { CustomButton } from '../CustomButton/CustomButton'
 import { useNavigate } from "react-router-dom"
 import './LoginForm.scss'
+import { CustomInput } from '../CustomInput'
 
 export const LoginForm = ({title, placeholder, recovery, formik, error}) => {
     const user_value = `user_${title.toLowerCase()}`
@@ -15,22 +16,26 @@ export const LoginForm = ({title, placeholder, recovery, formik, error}) => {
         <form onSubmit={formik.handleSubmit} className='login-form'>
             <h1>{title}</h1>
             <div className="input-field">
-                <input 
+                <CustomInput 
                     id={user_value} 
                     name={user_value} 
-                    type="text" placeholder={placeholder} 
+                    type="text" 
+                    placeholder={placeholder} 
+                    formik={formik}
                     onChange={formik.handleChange}
                     value={formik.values.user_value}
-                    required 
+                    required={true}
                 />
 
-                <input 
+                <CustomInput
                     id={password_value} 
                     name={password_value} 
-                    type="password" placeholder='Senha' 
+                    type="password" 
+                    placeholder='Senha' 
+                    formik={formik}
                     onChange={formik.handleChange}
                     value={formik.values.password_value}
-                    required 
+                    required={true}
                 />
             </div>
             <p className={`${recovery ? 'visible link' : 'hidden link'}`} onClick={onRecoverPasswordClick}>Esqueci minha senha</p>
