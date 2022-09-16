@@ -2,6 +2,7 @@ import Login from "./pages/Login";
 import axios from 'axios';
 import config from './config.json'
 import { useState } from 'react';
+import ResetPassword from "./pages/ResetPassword";
 
 
 const App = () => {
@@ -44,7 +45,11 @@ const App = () => {
         });
     }
   return (
-    <Login tryLogin={tryLogin} error_texts={{cliente: errorCliente, parceiro: errorParceiro}} />
+    <section>
+        <Login tryLogin={tryLogin} error_texts={{cliente: errorCliente, parceiro: errorParceiro}} />
+        {/* <ResetPassword /> */}
+    </section>
+        
 
   );
 }
