@@ -3,6 +3,7 @@ import axios from 'axios';
 import config from './config.json'
 import { useState } from 'react';
 import ResetPassword from "./pages/ResetPassword";
+import { BrowserRouter, Routes, Route, redirect } from "react-router-dom";
 
 
 const App = () => {
@@ -46,8 +47,19 @@ const App = () => {
     }
   return (
     <section>
-        <Login tryLogin={tryLogin} error_texts={{cliente: errorCliente, parceiro: errorParceiro}} />
-        {/* <ResetPassword /> */}
+        <BrowserRouter>
+            <Routes>
+                <Route index element={
+                    <Login 
+                        tryLogin={tryLogin} 
+                        error_texts={
+                            {cliente: errorCliente, parceiro: errorParceiro}
+                        } 
+                    />
+                } />
+                <Route path='/recuperar_senha/' element={<ResetPassword />} />
+            </Routes>
+        </BrowserRouter>
     </section>
         
 
