@@ -1,9 +1,57 @@
 import { useFormik } from 'formik';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Login.scss';
+import { useState } from 'react';
+import axios from 'axios';
+import config from '../../config.json'
+import { useNavigate } from "react-router-dom"
 
 
-export const Login = ({tryLogin, error_texts}) => {
+export const Login = () => {
+
+    const navigate = useNavigate();
+
+    const [errorCliente, setErrorCliente] = useState('');
+    const [errorParceiro, setErrorParceiro] = useState('');
+    const error_texts = {cliente: errorCliente, parceiro: errorParceiro}
+    
+    const tryLogin = (values) => {
+        // alert(JSON.stringify(values, null, 2))
+    
+        // zera o texto de erro renderizado
+        if (values.user_cliente) {
+            setErrorCliente('');
+            values.type = 'cliente';
+            
+        } else {
+            setErrorParceiro('');
+            values.type = 'parceiro';
+    
+        }
+        console.log(values);
+    
+        // post request na api
+        axios.post(`${config.api}/login/`, values).then((response) => {
+            console.log(response.data)
+    
+            // renderiza mensagem de erro de login
+            if (response.data.error) {
+                if (values.user_cliente) {
+                    setErrorCliente(response.data.error);
+                } else {
+                    setErrorParceiro(response.data.error);
+                }
+            } else {
+                // ir pra próxima página
+                // alert('login success: proxima pagina')
+                const data = response.data;
+                navigate('/recuperar_senha/', {state: data})
+            };
+    
+        }).catch((error) => {
+            console.log(`Erro: ${error}`);
+        });
+    }
 
     const formik_cliente = useFormik({
         initialValues: {
@@ -22,7 +70,8 @@ export const Login = ({tryLogin, error_texts}) => {
     });
 
     const onHelpClick = () => {
-        alert('popup de ajuda')
+        // alert('popup de ajuda')
+        navigate('/recuperar_senha/', {state: {text: 'Recuperar senha'}})
     }
 
     return (
