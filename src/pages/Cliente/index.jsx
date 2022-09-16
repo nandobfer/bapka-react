@@ -47,7 +47,7 @@ export const Cliente = () => {
                         <p onClick={onExit}>Sair</p>
 
                         <div className="cliente-info-container">
-                            <h1>Olá, {cliente.nome.split(' ')[0]}!<span>IDC:{cliente.id}</span></h1>
+                            <h1>Olá, {cliente.nome.split(' ')[0]}!<span>IDC: {cliente.id}</span></h1>
                             <h3>Você possui <span>{cliente.cupons}</span> cupons!</h3>
                         </div>
 
