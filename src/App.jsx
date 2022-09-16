@@ -45,8 +45,7 @@ const App = () => {
     }
   return (
     <Login tryLogin={tryLogin} error_texts={{cliente: errorCliente, parceiro: errorParceiro}} />
-    // <div className="App">
-    // </div>
+
   );
 }
 
