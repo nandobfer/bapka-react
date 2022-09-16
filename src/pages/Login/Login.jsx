@@ -5,6 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import config from '../../config.json'
 import { useNavigate } from "react-router-dom"
+import { MainContainer } from '../../components/MainContainer';
 
 
 export const Login = () => {
@@ -78,7 +79,7 @@ export const Login = () => {
 
     return (
         <div className="background">
-            <div className="main-container">
+            <MainContainer>
                 <img className='logo' src="/logo.webp" alt="logo" />
                 <h2>Acesse seus cupons preechendo os campos abaixo</h2>
 
@@ -102,7 +103,7 @@ export const Login = () => {
                 <div className="circle" onClick={onHelpClick}>
                     <p>?</p>
                 </div>
-            </div>
+            </MainContainer>
             <img className='top-floating-img floating-img' src="/background_top.png" alt="Leite" />
             <img className='bottom-floating-img floating-img' src="/background_top.png" alt="Leite" />
             <img id='circle-1' className='floating-img floating-circle' src="/circulo_1.svg" alt="Leite" />
