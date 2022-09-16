@@ -44,8 +44,11 @@ export const Login = () => {
             } else {
                 // ir pra próxima página
                 // alert('login success: proxima pagina')
-                const data = response.data;
-                navigate('/recuperar_senha/', {state: data})
+                if (values.user_cliente) {
+                    navigate('/cliente/', {state: response.data})
+                } else {
+                    navigate('/parceiro/', {state: response.data})
+                }
             };
     
         }).catch((error) => {
@@ -70,8 +73,7 @@ export const Login = () => {
     });
 
     const onHelpClick = () => {
-        // alert('popup de ajuda')
-        navigate('/recuperar_senha/', {state: {text: 'Recuperar senha'}})
+        alert('popup de ajuda')
     }
 
     return (

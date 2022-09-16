@@ -1,12 +1,14 @@
 import { CustomButton } from '../CustomButton/CustomButton'
+import { useNavigate } from "react-router-dom"
 import './LoginForm.scss'
 
 export const LoginForm = ({title, placeholder, recovery, formik, error}) => {
     const user_value = `user_${title.toLowerCase()}`
     const password_value = `password_${title.toLowerCase()}`
 
+    const navigate = useNavigate()
     const onRecoverPasswordClick = () => {
-        window.location.href = '/recuperar_senha/'
+        navigate('/recuperar_senha/')
     }
 
     return (
