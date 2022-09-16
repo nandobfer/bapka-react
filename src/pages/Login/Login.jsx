@@ -7,7 +7,6 @@ import config from '../../config.json'
 import { useNavigate } from "react-router-dom"
 import { MainContainer } from '../../components/MainContainer';
 import { LoadingScreen } from '../../components/LoadingScreen';
-import { Background } from '../../components/Background';
 
 
 export const Login = () => {
@@ -84,34 +83,32 @@ export const Login = () => {
 
     return (
         <section>
-            <Background>
-                <LoadingScreen loading={loading} />
-                <MainContainer>
-                    <img className='logo' src="/logo.webp" alt="logo" />
-                    <h2>Acesse seus cupons preechendo os campos abaixo</h2>
+            <LoadingScreen loading={loading} />
+            <MainContainer>
+                <img className='logo' src="/logo.webp" alt="logo" />
+                <h2>Acesse seus cupons preechendo os campos abaixo</h2>
 
-                    <div className="forms-container">
-                        <LoginForm 
-                            title = 'Cliente'
-                            placeholder ='Telefone'
-                            recovery = {true}
-                            formik={formik_cliente}
-                            error={error_texts.cliente}
-                            />
-                        <hr />
-                        <LoginForm 
-                            title = 'Parceiro'
-                            placeholder='E-mail'
-                            recovery = {false}
-                            formik={formik_parceiro}
-                            error={error_texts.parceiro}
+                <div className="forms-container">
+                    <LoginForm 
+                        title = 'Cliente'
+                        placeholder ='Telefone'
+                        recovery = {true}
+                        formik={formik_cliente}
+                        error={error_texts.cliente}
                         />
-                    </div>
-                    <div className="circle" onClick={onHelpClick}>
-                        <p>?</p>
-                    </div>
-                </MainContainer>
-            </Background>
+                    <hr />
+                    <LoginForm 
+                        title = 'Parceiro'
+                        placeholder='E-mail'
+                        recovery = {false}
+                        formik={formik_parceiro}
+                        error={error_texts.parceiro}
+                    />
+                </div>
+                <div className="circle" onClick={onHelpClick}>
+                    <p>?</p>
+                </div>
+            </MainContainer>
         </section>
     )
 }

@@ -1,6 +1,5 @@
 import './style.scss'
 import { useLocation } from 'react-router-dom'
-import { Background } from '../../components/Background';
 import { MainContainer } from '../../components/MainContainer';
 import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { useState } from 'react';
@@ -36,40 +35,38 @@ export const Cliente = () => {
 
     return (
         <section>
-            <Background>
-                <MainContainer>
-                    <div className="area-cliente-container">
-                        <div className="cliente-info">
-                            <div className="area-cliente-title">
-                                <h2>Área do cliente</h2>
-                                <div className="button">
-                                    <CustomButton text='Inserir código promocional' />
-                                </div>
+            <MainContainer>
+                <div className="area-cliente-container">
+                    <div className="cliente-info">
+                        <div className="area-cliente-title">
+                            <h2>Área do cliente</h2>
+                            <div className="button">
+                                <CustomButton text='Inserir código promocional' />
                             </div>
-                            <p onClick={onExit}>Sair</p>
-
-                            <div className="cliente-info-container">
-                                <h1>Olá, {cliente.nome.split(' ')[0]}!<span>IDC:{cliente.id}</span></h1>
-                                <h3>Você possui <span>{cliente.cupons}</span> cupons!</h3>
-                            </div>
-
-                            <div className="how-to-wrapper">
-                                <div className="tabs">
-                                    <div onClick={onClickTab1} className={tabs.first ? 'active' : null}>Como posso usar?</div>
-                                    <div onClick={onClickTab2} className={tabs.second ? 'active' : null}>Como ganho mais?</div>
-                                </div>
-                                <div className="info">
-
-                                </div>
-                            </div>
-
                         </div>
-                        <div className="history-container">
+                        <p onClick={onExit}>Sair</p>
 
+                        <div className="cliente-info-container">
+                            <h1>Olá, {cliente.nome.split(' ')[0]}!<span>IDC:{cliente.id}</span></h1>
+                            <h3>Você possui <span>{cliente.cupons}</span> cupons!</h3>
                         </div>
+
+                        <div className="how-to-wrapper">
+                            <div className="tabs">
+                                <div onClick={onClickTab1} className={tabs.first ? 'active' : null}>Como posso usar?</div>
+                                <div onClick={onClickTab2} className={tabs.second ? 'active' : null}>Como ganho mais?</div>
+                            </div>
+                            <div className="info">
+
+                            </div>
+                        </div>
+
                     </div>
-                </MainContainer>
-            </Background>
+                    <div className="history-container">
+
+                    </div>
+                </div>
+            </MainContainer>
         </section>
     )
 }
