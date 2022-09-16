@@ -29,6 +29,16 @@
             }
         }
 
+        p {
+            color: $background-color;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        p:hover {
+            text-decoration: underline;
+        }
+
         .cliente-info-container {
             margin: auto 0;
 

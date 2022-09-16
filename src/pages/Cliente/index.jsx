@@ -30,6 +30,10 @@ export const Cliente = () => {
         tabs.setFirst(false)
     }
 
+    const onExit = () => {
+        window.location.href = '/'
+    }
+
     return (
         <section>
             <Background>
@@ -42,6 +46,7 @@ export const Cliente = () => {
                                     <CustomButton text='Inserir código promocional' />
                                 </div>
                             </div>
+                            <p onClick={onExit}>Sair</p>
 
                             <div className="cliente-info-container">
                                 <h1>Olá, {cliente.nome.split(' ')[0]}!<span>IDC:{cliente.id}</span></h1>
