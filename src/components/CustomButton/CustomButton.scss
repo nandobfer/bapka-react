@@ -1,6 +1,6 @@
 @import '/src/colors';
 
-.button {
+.button-component {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@
     color: white;
 }
 
-.button:hover {
+.button-component:hover {
     border-color: $primary-color;
     background-color: $background-color;
     color: $primary-color;
