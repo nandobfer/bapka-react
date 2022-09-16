@@ -1,14 +1,5 @@
 @import "/src/colors";
 
-.background {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    background-color: $background-color;
-}
 
 .logo {
     object-fit: contain;
@@ -57,61 +48,4 @@
 .circle:hover {
     border-color: $background-color;
     color: $background-color;
-}
-
-
-.floating-img {
-    object-fit: contain;
-    position: absolute;
-    width: 100vw;
-    height: auto;
-    pointer-events: none;
-}
-
-.top-floating-img {
-    top: 0;
-}
-
-.bottom-floating-img {
-    bottom: 0;
-    transform: scaleY(-1) scaleX(-1);
-}
-
-.floating-circle {
-    width: auto;
-}
-
-#circle-1 {
-    height: 22vw;
-    left: 1.1vw;
-    bottom: 2vw;
-    z-index: 3;
-}
-
-#circle-2 {
-    height: 8.5vw;
-    top: 4.4vw;
-    left: 22vw;
-    z-index: 3;
-}
-
-#circle-3 {
-    height: 19vw;
-    top: 3.5vw;
-    right: 13.6vw;
-    z-index: 1;
-}
-
-#circle-4 {
-    height: 15vw;
-    bottom: 0vw;
-    right: 11vw;
-    z-index: 1;
-}
-
-#circle-5 {
-    height: 13vw;
-    bottom: 2.5vw;
-    right: 37vw;
-    z-index: 1;
 }
