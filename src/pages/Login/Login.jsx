@@ -1,49 +1,8 @@
-import axios from 'axios';
-import config from '../../config.json'
 import { useFormik } from 'formik';
-import { useState } from 'react';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Login.scss';
 
-export const Login = () => {
-    const [errorCliente, setErrorCliente] = useState('');
-    const [errorParceiro, setErrorParceiro] = useState('');
-
-    const tryLogin = (values) => {
-        // alert(JSON.stringify(values, null, 2))
-
-        // zera o texto de erro renderizado
-        if (values.user_cliente) {
-            setErrorCliente('');
-            values.type = 'cliente';
-            
-        } else {
-            setErrorParceiro('');
-            values.type = 'parceiro';
-
-        }
-        console.log(values);
-
-        // post request na api
-        axios.post(`${config.api}/login/`, values).then((response) => {
-            console.log(response.data)
-
-            // renderiza mensagem de erro de login
-            if (response.data.error) {
-                if (values.user_cliente) {
-                    setErrorCliente(response.data.error);
-                } else {
-                    setErrorParceiro(response.data.error);
-                }
-            } else {
-                // ir pra próxima página
-                alert('login success: proxima pagina')
-            };
-
-        }).catch((error) => {
-            console.log(`Erro: ${error}`);
-        });
-    }
+export const Login = ({tryLogin, error_texts}) => {
 
     const formik_cliente = useFormik({
         initialValues: {
@@ -77,7 +36,7 @@ export const Login = () => {
                         placeholder ='Telefone'
                         recovery = {true}
                         formik={formik_cliente}
-                        error={errorCliente}
+                        error={error_texts.cliente}
                         />
                     <hr />
                     <LoginForm 
@@ -85,7 +44,7 @@ export const Login = () => {
                         placeholder='E-mail'
                         recovery = {false}
                         formik={formik_parceiro}
-                        error={errorParceiro}
+                        error={error_texts.parceiro}
                     />
                 </div>
                 <div className="circle" onClick={onHelpClick}>
