@@ -6,7 +6,7 @@ const ResetPassword = () => {
     console.log(location.state)
 
     return (
-        <h1>{location.state.text}</h1>
+        <h1>Recuperar senha</h1>
     )
 }
 

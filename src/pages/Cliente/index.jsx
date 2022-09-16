@@ -5,6 +5,6 @@ export const Cliente = () => {
     const cliente = location.state
 
     return (
-        <p>Recuperar senha</p>
+        <p>cliente</p>
     )
 }
