@@ -6,6 +6,7 @@ import axios from 'axios';
 import config from '../../config.json'
 import { useNavigate } from "react-router-dom"
 import { MainContainer } from '../../components/MainContainer';
+import { LoadingScreen } from '../../components/LoadingScreen';
 
 
 export const Login = () => {
@@ -14,10 +15,12 @@ export const Login = () => {
 
     const [errorCliente, setErrorCliente] = useState('');
     const [errorParceiro, setErrorParceiro] = useState('');
+    const [loading, setLoading] = useState(false);
     const error_texts = {cliente: errorCliente, parceiro: errorParceiro}
     
     const tryLogin = (values) => {
         // alert(JSON.stringify(values, null, 2))
+        setLoading(true)
     
         // zera o texto de erro renderizado
         if (values.user_cliente) {
@@ -37,6 +40,7 @@ export const Login = () => {
     
             // renderiza mensagem de erro de login
             if (response.data.error) {
+                setLoading(false)
                 if (values.user_cliente) {
                     setErrorCliente(response.data.error);
                 } else {
@@ -46,7 +50,7 @@ export const Login = () => {
                 // ir pra próxima página
                 // alert('login success: proxima pagina')
                 if (values.user_cliente) {
-                    navigate('/cliente/', {state: response.data})
+                    // navigate('/cliente/', {state: response.data})
                 } else {
                     navigate('/parceiro/', {state: response.data})
                 }
@@ -79,6 +83,7 @@ export const Login = () => {
 
     return (
         <div className="background">
+            <LoadingScreen loading={loading} />
             <MainContainer>
                 <img className='logo' src="/logo.webp" alt="logo" />
                 <h2>Acesse seus cupons preechendo os campos abaixo</h2>

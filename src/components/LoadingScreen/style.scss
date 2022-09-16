@@ -1,0 +1,19 @@
+@import '/src/colors';
+
+.loading-screen {
+    position: absolute;
+    background-color: $primary-color;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loading-animation {
+
+    }
+}
