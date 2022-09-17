@@ -8,13 +8,13 @@ import './style.scss'
 import colors from '../../_colors.scss'
 
 export const Parceiro = () => {
-    console.log(colors)
-
+    
     const [cpf_value, setCpf_value] = useState('')
-
+    
     const location = useLocation()
     const parceiro = location.state;
-    console.log(parceiro)
+    // console.log(colors)
+    // console.log(parceiro)
 
     const onExit = () => {
         window.location.href = '/'
@@ -57,10 +57,10 @@ export const Parceiro = () => {
                             </div>
                             <div className="search-container">
                                 <p>Digite o CPF do cliente para adicionar ou remover cupons:</p>
-                                <div>
+                                <form onSubmit={formik.handleSubmit}>
                                     <CustomInput 
-                                        id={cpf_value}
-                                        name={cpf_value}
+                                        id='cpf_value'
+                                        name='cpf_value'
                                         type="text"
                                         placeholder='CPF'
                                         formik={formik}
@@ -71,7 +71,7 @@ export const Parceiro = () => {
                                     <div>
                                         <CustomButton text='Ok' border={`0.3vw solid ${colors.background_color}`} />
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
 
