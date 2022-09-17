@@ -8,6 +8,7 @@ import './style.scss'
 import colors from '../../_colors.scss'
 import { api } from '../../api'
 import { LoadingScreen } from '../../components/LoadingScreen'
+import { HistoryContainer } from '../../components/HistoryContainer'
 
 export const Parceiro = () => {
     
@@ -78,7 +79,7 @@ export const Parceiro = () => {
                                 <div className='search-tab'>Cupons</div>
                             </div>
                             <div className="search-container">
-                                <p>Digite o CPF do cliente para adicionar ou remover cupons:</p>
+                                <p className='cpf-label'>Digite o CPF do cliente para adicionar ou remover cupons:</p>
                                 <form onSubmit={formik.handleSubmit}>
                                     <CustomInput 
                                         id='cpf_value'
@@ -90,7 +91,7 @@ export const Parceiro = () => {
                                         value={formik.values.cpf_value}
                                         required={true}
                                     />
-                                    <div>
+                                    <div className='button-wrapper'>
                                         <CustomButton text='Ok' border={`0.3vw solid ${colors.background_color}`} />
                                     </div>
                                 </form>
@@ -98,8 +99,8 @@ export const Parceiro = () => {
                         </div>
 
                     </div>
-                    <div className="history-container">
-
+                    <div className="history-container-wrapper">
+                        <HistoryContainer historico={parceiro.historico} />
                     </div>
                 </div>
             </MainContainer>

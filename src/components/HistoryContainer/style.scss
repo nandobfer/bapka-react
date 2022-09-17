@@ -1,0 +1,40 @@
+@import '/src/colors';
+
+.history-background {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 1.5vw;
+    border-top-right-radius: 5vw;
+
+    .history-title-container {
+        position: relative;
+        display: flex;
+        color: $primary-color;
+        width: 100%;
+        justify-content: space-between;
+        
+        .history-title {
+            margin: 0 auto;
+            padding-right: 3vw;
+            font-size: 1.5vw;
+            margin-top: 1vw;
+        }
+
+        .logo-container {
+            position: absolute;
+            display: flex;
+            right: 0;
+            background-color: $primary-color-dark;
+            border-top-right-radius: 2vw;
+            border-bottom-left-radius: 2vw;
+            padding: 0vw 0.8vw 0.5vw 1.3vw;
+
+            img {
+                height: 3vw;
+            }
+        }
+    }
+}
