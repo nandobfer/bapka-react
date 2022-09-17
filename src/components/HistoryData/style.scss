@@ -1,5 +1,42 @@
 @import '/src/colors';
 
 .history-data-container {
+    display: flex;
     color: $primary-color;
+    align-items: center;
+
+    .pontinho {
+        background-color: $primary-color-dark;
+        border-radius: 50%;
+        width: 0.6vw;
+        height: 0.6vw;
+        margin-right: 1vw;
+    }
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.05vw;
+        line-height: 1.4vw;
+
+        span {
+            color: black;
+        }
+
+        .operacao-removido {
+            color: $text-removido;
+            margin-left: 1vw;
+        }
+
+        .operacao-adicionado {
+            color: $text-adicionado;
+            margin-left: 1vw;
+        }
+    }
+}
+
+.history-line-container {
+    hr {
+        margin: 1.5vw;
+    }
 }

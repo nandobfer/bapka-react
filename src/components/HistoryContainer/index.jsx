@@ -14,13 +14,14 @@ export const HistoryContainer = ({historico}) => {
             </div>
 
             <div className="history-data-wrapper">
-            {historico.map(item => {
-                return <HistoryData 
-                    key={item} 
-                    historico={item} 
-                    text='Cliente'
-                />
-            })}
+                {historico.map(item => {
+                    return (
+                        <HistoryData 
+                            key={item} 
+                            historico={item} 
+                        />
+                    )
+                })}
             </div>
         </div>
     )

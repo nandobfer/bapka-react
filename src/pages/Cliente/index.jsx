@@ -4,6 +4,7 @@ import { MainContainer } from '../../components/MainContainer';
 import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { useState } from 'react';
 import colors from '../../_colors.scss'
+import { HistoryContainer } from '../../components/HistoryContainer';
 
 
 export const Cliente = () => {
@@ -39,7 +40,7 @@ export const Cliente = () => {
         <section>
             <MainContainer>
                 <div className="area-cliente-container">
-                    <div className="cliente-info">
+                    <div className="cliente-info-container">
                         <div className="area-cliente-title">
                             <h2>Área do cliente</h2>
                             <div className="button">
@@ -64,8 +65,8 @@ export const Cliente = () => {
                         </div>
 
                     </div>
-                    <div className="history-container">
-
+                    <div className="history-container-wrapper">
+                        <HistoryContainer historico={cliente.historico} />
                     </div>
                 </div>
             </MainContainer>
