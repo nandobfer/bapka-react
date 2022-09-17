@@ -57,6 +57,7 @@ export const Login = () => {
     
         }).catch((error) => {
             console.log(`Erro: ${error}`);
+            alert('timeout')
             setLoading(false)
         });
     }
