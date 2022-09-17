@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom'
 import { MainContainer } from '../../components/MainContainer';
 import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { useState } from 'react';
+import colors from '../../_colors.scss'
+
 
 export const Cliente = () => {
     const location = useLocation();
@@ -41,7 +43,7 @@ export const Cliente = () => {
                         <div className="area-cliente-title">
                             <h2>Área do cliente</h2>
                             <div className="button">
-                                <CustomButton text='Inserir código promocional' />
+                                <CustomButton text='Inserir código promocional' border={`0.2vw solid ${colors.background_color}`} />
                             </div>
                         </div>
                         <p onClick={onExit}>Sair</p>
