@@ -57,6 +57,7 @@ export const Login = () => {
     
         }).catch((error) => {
             console.log(`Erro: ${error}`);
+            setLoading(false)
         });
     }
 
