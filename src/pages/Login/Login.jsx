@@ -3,7 +3,6 @@ import { LoginForm } from '../../components/LoginForm/LoginForm';
 import './Login.scss';
 import { useState } from 'react';
 import { api } from '../../api'
-import config from '../../config.json'
 import { useNavigate } from "react-router-dom"
 import { MainContainer } from '../../components/MainContainer';
 import { LoadingScreen } from '../../components/LoadingScreen';

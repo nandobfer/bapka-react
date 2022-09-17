@@ -29,13 +29,13 @@
             }
         }
 
-        p {
+        .exit-p {
             color: $background-color;
             cursor: pointer;
             width: fit-content;
         }
 
-        p:hover {
+        .exit-p:hover {
             text-decoration: underline;
         }
 
@@ -78,7 +78,6 @@
                     height: 3vw;
                     width: 35%;
                     background-color: lighten($primary-color-dark, 5%);
-                    cursor: pointer;
                 }
 
                 .search-tab {
@@ -87,12 +86,30 @@
             }
 
             .search-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 background-color: darken($primary-color-dark, 5%);
                 width: 100%;
                 height: 10vw;
                 border-top-right-radius: 2vw;
                 border-bottom-right-radius: 2vw;
                 border-bottom-left-radius: 2vw;
+                padding: 1vw;
+
+                p {
+                    color: white;
+                    font-size: 1.3vw;
+                }
+
+                div {
+                    display: flex;
+
+                    div {
+                        width: 30%;
+                        margin-left: 1vw;
+                    }
+                }
             }
         }
     }

@@ -3,7 +3,7 @@ import './style.scss'
 export const CustomInput = (props) => {
 
     return (
-        <section>
+        <section className='custom-input-wrapper'>
             <input className='custom-input' 
                     id={props.id} 
                     name={props.name} 
