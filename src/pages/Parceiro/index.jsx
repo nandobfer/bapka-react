@@ -6,33 +6,56 @@ import { CustomInput } from '../../components/CustomInput'
 import { MainContainer } from '../../components/MainContainer'
 import './style.scss'
 import colors from '../../_colors.scss'
+import { api } from '../../api'
+import { LoadingScreen } from '../../components/LoadingScreen'
 
 export const Parceiro = () => {
     
     const [cpf_value, setCpf_value] = useState('')
+    const [loading, setLoading] = useState(false)
     
     const location = useLocation()
     const parceiro = location.state;
     // console.log(colors)
     // console.log(parceiro)
 
+
     const onExit = () => {
         window.location.href = '/'
     }
 
-    const searchCliente = (values) => {
-        console.log(values)
+    const searchCpf = (values) => {
+        setLoading(true)
+        const data = {
+            id: parceiro.id,
+            cpf: values.cpf_value,
+        }
+        console.log(data)
+        api.post('/search_cpf/', data).then((response) => {
+            console.log(response.data)
+            if (response.data.error) {
+                alert(response.data.error)
+                setLoading(false)
+            } else {
+                alert(`Sucesso: ir para página de cupons de ${response.data.nome} na loja ${parceiro.loja}`)
+                setLoading(false)
+            }
+        }).catch((error) => {
+            alert('timeout')
+            setLoading(false)
+        })
     }
 
     const formik = useFormik({
         initialValues: {
             cpf_value: ''
         },
-        onSubmit: values => searchCliente(values)
+        onSubmit: values => searchCpf(values)
     })
 
     return (
         <section>
+            <LoadingScreen loading={loading} />
             <MainContainer>
             <div className="area-parceiro-container">
                     <div className="parceiro-info">
