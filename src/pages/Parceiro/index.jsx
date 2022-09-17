@@ -11,7 +11,6 @@ import { LoadingScreen } from '../../components/LoadingScreen'
 
 export const Parceiro = () => {
     
-    const [cpf_value, setCpf_value] = useState('')
     const [loading, setLoading] = useState(false)
     
     const location = useLocation()
