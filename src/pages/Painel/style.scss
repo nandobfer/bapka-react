@@ -22,7 +22,7 @@
             border-bottom-left-radius: 5vw;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
-            margin: 0 -1vw;
+            margin: 0 -2vw 0 -1vw;
             padding: 1vw;
             
             .cliente-voltar {
@@ -70,16 +70,37 @@
                 }
 
                 .cupons-container {
+                    position: relative;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    width: 3vw;
+                    left: 1vw;
+                    user-select: none;
+
+                    .operador {
+                        position: absolute;
+                        top: 1.5vw;
+                        left: -2vw
+                    }
+
+                    .operador-mais {
+                        color: $text-adicionado;
+                    }
+
+                    .operador-menos {
+                        color: $text-removido;
+                    }
 
                     > h1 {
                         font-size: 4vw;
+                        font-weight: normal;
                     }
 
                     .triangle {
                         width: 0.5vw;
+                        transition: 0.3s;
+                        cursor: pointer;
                     }
                     
                     .triangle-up {
@@ -91,16 +112,17 @@
                     }
                     
                     .triangle-up:hover {
-                        border-bottom: 1vw solid $primary-color;
+                        border-bottom: 1vw solid white;
                     }
 
                     .triangle-down:hover {
-                        border-top: 1vw solid $primary-color;
+                        border-top: 1vw solid white;
                     }
                 }
 
                 > p {
                     font-size: 1vw;
+                    margin-left: 1vw;
                 }
 
                 .cupons-buttons-container {
@@ -108,6 +130,7 @@
                     flex-direction: column;
                     align-items: center;
                     gap: 0.7vw;
+                    margin-left: -1vw;
                 }
 
             }

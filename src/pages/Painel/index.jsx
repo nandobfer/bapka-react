@@ -1,13 +1,29 @@
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'
 import { AreaTitle } from '../../components/AreaTitle';
 import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { HistoryContainer } from '../../components/HistoryContainer';
 import { MainContainer } from '../../components/MainContainer';
+import colors from '../../_colors.scss';
 import './style.scss'
 
 export const Painel = () => {
     const cliente = useLocation().state;
     const navigate = useNavigate();
+
+    const [cupons, setCupons] = useState(0);
+
+    const increaseButton = () => {
+        setCupons(cupons+1);
+    }
+    
+    const decreaseButton = () => {
+        setCupons(cupons-1);
+    }
+
+    const cupons_style = {
+        color: cupons == 0 ? 'white' : cupons > 0 ? colors.text_adicionado : colors.text_removido
+    }
 
     const goBack = () => {
         navigate(-1);
@@ -33,6 +49,7 @@ export const Painel = () => {
                                 <CustomButton
                                     text='Voltar'
                                     action={goBack}
+                                    border='0.3vw'
                                 />
                             </div>
                         </div>
@@ -44,9 +61,11 @@ export const Painel = () => {
                         <div className="cupons-wrapper">
                             <h1>Quantidade:</h1>
                             <div className="cupons-container">
-                                <div className="triangle triangle-up"></div>
-                                <h1>0</h1>
-                                <div className="triangle triangle-down"></div>
+                                <div onClick={increaseButton} className="triangle triangle-up"></div>
+                                {cupons > 0 ? <h1 className="operador-mais operador">+</h1> : null}
+                                <h1 style={cupons_style}>{Math.abs(cupons)}</h1>
+                                {cupons < 0 ? <h1 className="operador-menos operador">-</h1> : null}
+                                <div onClick={decreaseButton} className="triangle triangle-down"></div>
                             </div>
                             <p>Cupons</p>
                             <div className="cupons-buttons-container">
@@ -54,7 +73,7 @@ export const Painel = () => {
                                     text='Aplicar'
                                     action={changeCupons}
                                     border='0.2vw'
-                                    font_size='1vw'
+                                    font_size='1.2vw'
                                     width='9vw'
                                     height='2.5vw'
                                     />
