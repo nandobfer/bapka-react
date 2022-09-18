@@ -42,12 +42,17 @@ export const Cadastro = () => {
         api.post('/search_cpf/', data).then((response) => {
             console.log(response.data);
             if (response.data.error) {
-                setCliente({cpf: data.cpf});
-                setNew_client(true);
+                if (response.data.error_code == 1) {
+                    setCliente({cpf: data.cpf});
+                    setNew_client(true);
+                } else if (response.data.error_code == 2) {
+                    setCliente(response.data);
+                    setNot_so_new_client(true);
+                    setNew_client(true);
+                }
             } else {
-                setCliente(response.data);
-                setNot_so_new_client(true);
-                setNew_client(true);
+                alert('cliente já cadastrado nessa loja')
+                navigate(-1)
             }
             setLoading(false);
         }).catch((error) => {

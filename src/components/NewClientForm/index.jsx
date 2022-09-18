@@ -85,6 +85,20 @@ export const NewClientForm = ({parceiro, cliente, new_client, setLoading}) => {
                 formik={formik}
                 required={true}
             />
+            {new_client ? <CustomInput
+                id='input_senha'
+                type='text'
+                placeholder='Senha'
+                formik={formik}
+                required={true}
+            /> : null}
+            {new_client ? <CustomInput
+                id='input_confirmacao'
+                type='text'
+                placeholder='Confirme a senha'
+                formik={formik}
+                required={true}
+            /> : null}
             <div>
                 <CustomButton
                     text='Cadastrar cliente'
