@@ -18,7 +18,7 @@ export const AreaTitle = ({user_type, button}) => {
                 <div className="button">
                     {button ? <CustomButton 
                         text={button.text}
-                        border={`0.2vw solid ${colors.background_color}`} 
+                        border='0.2vw' 
                         action={button.action}
                     /> : null}
                 </div>

@@ -53,10 +53,14 @@ export const Painel = () => {
                                 <CustomButton 
                                     text='Aplicar'
                                     action={changeCupons}
-                                />
+                                    border='0.2vw'
+                                    font_size='1vw'
+                                    />
                                 <CustomButton 
                                     text='Limpar'
                                     action={resetCupons}
+                                    border='0.2vw'
+                                    font_size='1vw'
                                 />
                             </div>
                         </div>

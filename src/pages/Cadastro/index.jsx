@@ -75,7 +75,7 @@ export const Cadastro = () => {
                             <CustomButton
                                 text="Voltar"
                                 action={goBack}
-                                border={`0.2vw solid ${colors.background_color}`}
+                                border='0.2vw'
                             />
                         </div>
                     </div>

@@ -93,7 +93,7 @@ export const Parceiro = () => {
                                         required={true}
                                     />
                                     <div className='button-wrapper'>
-                                        <CustomButton text='Ok' border={`0.3vw solid ${colors.background_color}`} />
+                                        <CustomButton text='Ok' border='0.3vw' />
                                     </div>
                                 </form>
                             </div>
