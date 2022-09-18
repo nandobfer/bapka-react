@@ -5,6 +5,7 @@ import { Cliente } from "./pages/Cliente";
 import { Parceiro } from "./pages/Parceiro";
 import { Cadastro } from "./pages/Cadastro";
 import { Background } from "./components/Background";
+import { Painel } from "./pages/Painel";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                     <Route path='/cliente/' element={<Cliente />} />
                     <Route path='/parceiro/' element={<Parceiro />} />
                     <Route path='/cadastrar/' element={<Cadastro />} />
+                    <Route path='/painel/' element={<Painel />} />
                 </Routes>
             </BrowserRouter>
         </Background>

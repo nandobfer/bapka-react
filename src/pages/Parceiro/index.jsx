@@ -35,7 +35,7 @@ export const Parceiro = () => {
             if (response.data.error) {
                 alert(response.data.error);
             } else {
-                alert(`Sucesso: ir para página de cupons de ${response.data.nome} na loja ${parceiro.loja}`);
+                navigate('/painel/', {state: response.data})
             }
             setLoading(false);
         }).catch((error) => {

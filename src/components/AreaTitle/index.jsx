@@ -13,11 +13,11 @@ export const AreaTitle = ({user_type, button}) => {
             <div>
                 <h2>Área do {user_type}</h2>
                 <div className="button">
-                    <CustomButton 
+                    {button ? <CustomButton 
                         text={button.text}
                         border={`0.2vw solid ${colors.background_color}`} 
                         action={button.action}
-                    />
+                    /> : null}
                 </div>
             </div>
             <p className='exit-p' onClick={onExit}>Sair</p>
