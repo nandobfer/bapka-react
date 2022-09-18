@@ -1,0 +1,9 @@
+@import '/src/colors';
+
+.new-client-form {
+    flex: 0.45;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    margin-top: -0.5vw;
+}
