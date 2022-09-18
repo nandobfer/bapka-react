@@ -1,6 +1,6 @@
 import './style.scss'
 
-export const CustomInput = ({id, type, placeholder, formik, required}) => {
+export const CustomInput = ({id, type, placeholder, formik, required, disabled}) => {
 
     return (
         <section className='custom-input-wrapper'>
@@ -12,6 +12,7 @@ export const CustomInput = ({id, type, placeholder, formik, required}) => {
                     onChange={formik.handleChange}
                     value={formik.values[id]}
                     required={required}
+                    disabled={disabled}
                 />
         </section>
     )

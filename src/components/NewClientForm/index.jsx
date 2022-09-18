@@ -4,9 +4,10 @@ import { CustomButton } from '../CustomButton/CustomButton';
 import { CustomInput } from '../CustomInput';
 import './style.scss'
 
-export const NewClientForm = ({parceiro, cliente, setLoading}) => {
+export const NewClientForm = ({parceiro, cliente, new_client, setLoading}) => {
     let inputs = [];
     console.log(cliente)
+    console.log(new_client)
 
     const formik = useFormik({
         initialValues: {
@@ -54,18 +55,36 @@ export const NewClientForm = ({parceiro, cliente, setLoading}) => {
 
     return (
         <form className='new-client-form' onSubmit={formik.handleSubmit}>
-            {inputs.map(item => {
-                return (
-                    <CustomInput
-                        id={item}
-                        type='text'
-                        placeholder={`${item.split('_')[1][0].toUpperCase()}${item.split('_')[1].slice(1)}`}
-                        formik={formik}
-                        key={inputs.indexOf(item)}
-                        required={true}
-                    />
-                )
-            })}
+            <CustomInput
+                id='input_nome'
+                type='text'
+                placeholder='Nome'
+                formik={formik}
+                required={true}
+                disabled={new_client ? false : true}
+            />
+            <CustomInput
+                id='input_cpf'
+                type='text'
+                placeholder='CPF'
+                formik={formik}
+                required={true}
+                disabled={new_client ? false : true}
+            />
+            <CustomInput
+                id='input_telefone'
+                type='text'
+                placeholder='Telefone'
+                formik={formik}
+                required={true}
+            />
+            <CustomInput
+                id='input_email'
+                type='text'
+                placeholder='E-mail'
+                formik={formik}
+                required={true}
+            />
             <div>
                 <CustomButton
                     text='Cadastrar cliente'

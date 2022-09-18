@@ -14,6 +14,7 @@ export const Cadastro = () => {
 
     const [loading, setLoading] = useState(false);
     const [new_client, setNew_client] = useState(false);
+    const [not_so_new_client, setNot_so_new_client] = useState(false);
     const location = useLocation();
     const parceiro = location.state;
     const navigate = useNavigate();
@@ -45,6 +46,7 @@ export const Cadastro = () => {
                 setNew_client(true);
             } else {
                 setCliente(response.data);
+                setNot_so_new_client(true);
                 setNew_client(true);
             }
             setLoading(false);
@@ -76,6 +78,7 @@ export const Cadastro = () => {
                         <NewClientForm 
                             parceiro={parceiro}
                             setLoading={setLoading}
+                            new_client={!not_so_new_client}
                             cliente={cliente}
                         /> : 
                         <form onSubmit={formik.handleSubmit}>
