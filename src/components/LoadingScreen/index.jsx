@@ -1,5 +1,6 @@
 import './style.scss'
 import ReactLoading from 'react-loading'
+import colors from '../../_colors.scss'
 
 const Loading = () => {
     return (
@@ -7,7 +8,7 @@ const Loading = () => {
             <ReactLoading
                 className='loading-animation'
                 type='spinningBubbles'
-                color='#eee643'
+                color={colors.background_color}
             />
         </div>
     )
