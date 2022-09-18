@@ -64,7 +64,7 @@ export const Cliente = () => {
 
                     </div>
                     <div className="history-container-wrapper">
-                        <HistoryContainer historico={cliente.historico} />
+                        <HistoryContainer historico={cliente.historico} title='Cliente' />
                     </div>
                 </div>
             </MainContainer>
