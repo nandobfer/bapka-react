@@ -20,7 +20,9 @@
             background-color: $panel-color;
             border-radius: 2vw;
             border-bottom-left-radius: 5vw;
-            margin-left: -1vw;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            margin: 0 -1vw;
             padding: 1vw;
             
             .cliente-voltar {

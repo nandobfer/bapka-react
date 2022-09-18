@@ -63,7 +63,7 @@ export const Painel = () => {
                     </div>
                 </div>
                 <div className="history-container-wrapper">
-                    <HistoryContainer historico={cliente.historico} title='Cliente' />
+                    <HistoryContainer historico={cliente.historico} title='Cliente' painel={true} />
                 </div>
             </section>
         </MainContainer>
