@@ -36,11 +36,10 @@ export const Parceiro = () => {
             console.log(response.data);
             if (response.data.error) {
                 alert(response.data.error);
-                setLoading(false);
             } else {
                 alert(`Sucesso: ir para página de cupons de ${response.data.nome} na loja ${parceiro.loja}`);
-                setLoading(false);
             }
+            setLoading(false);
         }).catch((error) => {
             alert(error);
             setLoading(false);
