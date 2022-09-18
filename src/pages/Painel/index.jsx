@@ -55,12 +55,16 @@ export const Painel = () => {
                                     action={changeCupons}
                                     border='0.2vw'
                                     font_size='1vw'
+                                    width='9vw'
+                                    height='2.5vw'
                                     />
                                 <CustomButton 
                                     text='Limpar'
                                     action={resetCupons}
                                     border='0.2vw'
-                                    font_size='1vw'
+                                    font_size='0.85vw'
+                                    width='5vw'
+                                    height='1.5vw'
                                 />
                             </div>
                         </div>
