@@ -10,7 +10,7 @@
     padding-bottom: 1vw;
     font-weight: normal;
 
-    h2 {
+    > h2 {
         font-size: 2vw;
     }
 
@@ -22,30 +22,10 @@
         outline: 1px solid red;
         padding-right: 1vw;
 
-        .area-parceiro-title {
-            display: flex;
-            justify-content: space-between;
-
-            .button-component {
-                font-size: 0.85vw;
-                width: 12.5vw;
-            }
-        }
-
-        .exit-p {
-            color: $background-color;
-            cursor: pointer;
-            width: fit-content;
-        }
-
-        .exit-p:hover {
-            text-decoration: underline;
-        }
-
         .parceiro-info-container {
             margin: auto 0;
 
-            h1 {
+            > h1 {
                 font-size: 4vw;
                 font-weight: normal;
                 margin-bottom: 1vw;
@@ -56,7 +36,7 @@
                 }
             }
     
-            p {
+            > p {
                 color: white;
                 font-size: 1.3vw;
                 line-height: 2vw;
@@ -72,7 +52,7 @@
             .tabs {
                 display: flex;
 
-                div {
+                > div {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -105,7 +85,7 @@
                     font-size: 1.3vw;
                 }
 
-                form {
+                > form {
                     display: flex;
 
                     .button-wrapper {

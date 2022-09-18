@@ -9,6 +9,7 @@ import colors from '../../_colors.scss'
 import { api } from '../../api'
 import { LoadingScreen } from '../../components/LoadingScreen'
 import { HistoryContainer } from '../../components/HistoryContainer'
+import { AreaTitle } from '../../components/AreaTitle'
 
 export const Parceiro = () => {
     
@@ -63,17 +64,13 @@ export const Parceiro = () => {
             <MainContainer>
             <div className="area-parceiro-container">
                     <div className="parceiro-info">
-                        <div className="area-parceiro-title">
-                            <h2>Área do parceiro</h2>
-                            <div className="button">
-                                <CustomButton 
-                                    text='Cadastrar novo cliente' 
-                                    border={`0.2vw solid ${colors.background_color}`} 
-                                    action={toSignUp}
-                                />
-                            </div>
-                        </div>
-                        <p className='exit-p' onClick={onExit}>Sair</p>
+                        <AreaTitle 
+                            user_type='parceiro'
+                            button={{
+                                text: 'Cadastar novo cliente',
+                                action: toSignUp
+                            }}
+                        />
 
                         <div className="parceiro-info-container">
                             <h1>Olá, {parceiro.loja.split(' ')[0]}!<span>IDP: {parceiro.id}</span></h1>

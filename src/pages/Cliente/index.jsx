@@ -5,6 +5,7 @@ import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { useState } from 'react';
 import colors from '../../_colors.scss'
 import { HistoryContainer } from '../../components/HistoryContainer';
+import { AreaTitle } from '../../components/AreaTitle';
 
 
 export const Cliente = () => {
@@ -32,22 +33,18 @@ export const Cliente = () => {
         tabs.setFirst(false)
     }
 
-    const onExit = () => {
-        window.location.href = '/'
-    }
-
     return (
         <section>
             <MainContainer>
                 <div className="area-cliente-container">
                     <div className="cliente-info-container">
-                        <div className="area-cliente-title">
-                            <h2>Área do cliente</h2>
-                            <div className="button">
-                                <CustomButton text='Inserir código promocional' border={`0.2vw solid ${colors.background_color}`} />
-                            </div>
-                        </div>
-                        <p onClick={onExit}>Sair</p>
+                        <AreaTitle 
+                            user_type='cliente'
+                            button={{
+                                text: 'Inserir código promocional',
+                                action: alert
+                            }}
+                        />
 
                         <div className="cliente-info-container">
                             <h1>Olá, {cliente.nome.split(' ')[0]}!<span>IDC: {cliente.id}</span></h1>

@@ -8,7 +8,7 @@
     height: 100%;
     align-items: center;
 
-    div {
+    > div {
         flex: 0.55;
         display: flex;
         flex-direction: column;
@@ -16,33 +16,33 @@
         gap: 0.8vw;
         text-align: center;
 
-        img {
+        > img {
             height: 7.5vw;
             margin-top: 2vw;
         }
 
-        h1 {
+        > h1 {
             margin-top: -0.8vw;
             font-size: 2.7vw;
             font-weight: normal;
         }
 
-        h2 {
+        > h2 {
             font-size: 2.1vw;
             font-weight: normal;
         }
 
-        p {
+        > p {
             font-size: 1.4vw;
         }
 
-        div {
+        > div {
             width: 10vw;
             margin-top: 4.35vw;
         }
     }
 
-    form {
+    > form {
         flex: 0.45;
         display: flex;
         flex-direction: column;

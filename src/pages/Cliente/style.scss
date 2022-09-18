@@ -20,39 +20,20 @@
         outline: 1px solid red;
         padding-right: 1vw;
 
-        .area-cliente-title {
-            display: flex;
-            justify-content: space-between;
-
-            .button-component {
-                font-size: 1vw;
-            }
-        }
-
-        p {
-            color: $background-color;
-            cursor: pointer;
-            width: fit-content;
-        }
-
-        p:hover {
-            text-decoration: underline;
-        }
-
         .cliente-info-container {
             margin: auto 0;
 
-            h1 {
+            > h1 {
                 font-size: 3vw;
                 font-weight: normal;
-                span {
+                > span {
                     color: $background-color;
                     font-size: 1vw;
                     margin-left: 1vw;
                 }
             }
     
-            h3 {
+            > h3 {
                 display: flex;
                 align-items: center;
                 font-weight: normal;
@@ -73,8 +54,9 @@
 
             .tabs {
                 display: flex;
+                font-size: 1.1vw;
 
-                div {
+                > div {
                     display: flex;
                     justify-content: center;
                     align-items: center;

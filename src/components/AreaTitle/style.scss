@@ -1,0 +1,30 @@
+@import '/src/colors';
+
+.area-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .button-component {
+        font-size: 1vw;
+    }
+
+    > div {
+        display: flex;
+
+        > div {
+            margin-left: auto;
+        }
+    }
+}
+
+.exit-p {
+    color: $background-color;
+    cursor: pointer;
+    width: fit-content;
+    font-size: 1vw;
+}
+
+.exit-p:hover {
+    text-decoration: underline;
+}
