@@ -33,6 +33,9 @@ export const Cliente = () => {
         tabs.setFirst(false)
     }
 
+    // MOCADO ------
+    cliente.cupons = 0;
+
     return (
         <section>
             <MainContainer>
