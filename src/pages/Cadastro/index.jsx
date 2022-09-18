@@ -35,33 +35,33 @@ export const Cadastro = () => {
 
     const buildInputs = () => {
         for (let key in formik.values) {
-            let input = key
-            inputs.push(input)
+            let input = key;
+            inputs.push(input);
         }
-        console.log(inputs)
+        console.log(inputs);
     }
     buildInputs();
 
     const sendSignUpForm = (values) => {
-        setLoading(true)
+        setLoading(true);
         const data = {
             id: parceiro.id,
             cliente: values
-        }
-        console.log(data)
+        };
+        console.log(data);
 
         api.post('/new_client/', data).then((response) => {
-            console.log(response.data)
+            console.log(response.data);
             if (response.data.error) {
-                alert(response.data.error)
+                alert(response.data.error);
             } else {
-                alert(`Sucesso: ${response.data}`)
+                alert(`Sucesso: ${response.data}`);
             }
-            setLoading(false)
+            setLoading(false);
         }).catch((error) => {
-            console.log(error)
+            console.log(error);
             alert(error);
-            setLoading(false)
+            setLoading(false);
         })
 
     }
