@@ -45,7 +45,7 @@ export const Cadastro = () => {
     const sendSignUpForm = (values) => {
         setLoading(true);
         const data = {
-            id: parceiro.id,
+            id_parceiro: parceiro.id,
             cliente: values
         };
         console.log(data);
