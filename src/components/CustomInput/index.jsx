@@ -1,17 +1,17 @@
 import './style.scss'
 
-export const CustomInput = (props) => {
+export const CustomInput = ({id, type, placeholder, formik, required}) => {
 
     return (
         <section className='custom-input-wrapper'>
             <input className='custom-input' 
-                    id={props.id} 
-                    name={props.name} 
-                    type={props.type}
-                    placeholder={props.placeholder} 
-                    onChange={props.formik.handleChange}
-                    value={props.formik.values.user_value}
-                    required={props.required}
+                    id={id} 
+                    name={id} 
+                    type={type}
+                    placeholder={placeholder} 
+                    onChange={formik.handleChange}
+                    value={formik.values[id]}
+                    required={required}
                 />
         </section>
     )

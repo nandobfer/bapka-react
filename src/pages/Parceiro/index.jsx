@@ -96,7 +96,6 @@ export const Parceiro = () => {
                                         type="text"
                                         placeholder='CPF'
                                         formik={formik}
-                                        onChange={formik.handleChange}
                                         value={formik.values.cpf_value}
                                         required={true}
                                     />

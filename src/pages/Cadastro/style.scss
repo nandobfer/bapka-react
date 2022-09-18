@@ -1,1 +1,52 @@
 @import '/src/colors';
+
+.signup-page {
+    display: flex;
+    padding: 2vw;
+    background-color: $primary-color-dark;
+    border-radius: 5vw;
+    height: 100%;
+    align-items: center;
+
+    div {
+        flex: 0.55;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8vw;
+        text-align: center;
+
+        img {
+            height: 7.5vw;
+            margin-top: 2vw;
+        }
+
+        h1 {
+            margin-top: -0.8vw;
+            font-size: 2.7vw;
+            font-weight: normal;
+        }
+
+        h2 {
+            font-size: 2.1vw;
+            font-weight: normal;
+        }
+
+        p {
+            font-size: 1.4vw;
+        }
+
+        div {
+            width: 10vw;
+            margin-top: 4.35vw;
+        }
+    }
+
+    form {
+        flex: 0.45;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vw;
+        margin-top: -0.5vw;
+    }
+}
