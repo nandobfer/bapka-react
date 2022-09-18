@@ -42,10 +42,10 @@ export const Cadastro = () => {
         api.post('/search_cpf/', data).then((response) => {
             console.log(response.data);
             if (response.data.error) {
-                if (response.data.error_code == 1) {
+                if (response.data.error_code === 1) {
                     setCliente({cpf: data.cpf});
                     setNew_client(true);
-                } else if (response.data.error_code == 2) {
+                } else if (response.data.error_code === 2) {
                     setCliente(response.data);
                     setNot_so_new_client(true);
                     setNew_client(true);
