@@ -1,6 +1,6 @@
 import { useFormik } from 'formik'
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { CustomButton } from '../../components/CustomButton/CustomButton'
 import { CustomInput } from '../../components/CustomInput'
 import { MainContainer } from '../../components/MainContainer'
@@ -12,9 +12,10 @@ import { HistoryContainer } from '../../components/HistoryContainer'
 
 export const Parceiro = () => {
     
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     
-    const location = useLocation()
+    const location = useLocation();
+    const navigate = useNavigate();
     const parceiro = location.state;
     // console.log(colors)
     // console.log(parceiro)
@@ -32,17 +33,17 @@ export const Parceiro = () => {
         }
         console.log(data)
         api.post('/search_cpf/', data).then((response) => {
-            console.log(response.data)
+            console.log(response.data);
             if (response.data.error) {
-                alert(response.data.error)
-                setLoading(false)
+                alert(response.data.error);
+                setLoading(false);
             } else {
-                alert(`Sucesso: ir para página de cupons de ${response.data.nome} na loja ${parceiro.loja}`)
-                setLoading(false)
+                alert(`Sucesso: ir para página de cupons de ${response.data.nome} na loja ${parceiro.loja}`);
+                setLoading(false);
             }
         }).catch((error) => {
-            alert(error)
-            setLoading(false)
+            alert(error);
+            setLoading(false);
         })
     }
 
@@ -50,8 +51,12 @@ export const Parceiro = () => {
         initialValues: {
             cpf_value: ''
         },
-        onSubmit: values => searchCpf(values)
+        onSubmit: values => searchCpf(values),
     })
+
+    const toSignUp = () => {
+        navigate('/cadastrar/', {state: parceiro})
+    }
 
     return (
         <section>
@@ -62,7 +67,11 @@ export const Parceiro = () => {
                         <div className="area-parceiro-title">
                             <h2>Área do parceiro</h2>
                             <div className="button">
-                                <CustomButton text='Cadastrar novo cliente' border={`0.2vw solid ${colors.background_color}`} />
+                                <CustomButton 
+                                    text='Cadastrar novo cliente' 
+                                    border={`0.2vw solid ${colors.background_color}`} 
+                                    action={toSignUp}
+                                />
                             </div>
                         </div>
                         <p className='exit-p' onClick={onExit}>Sair</p>
