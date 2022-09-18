@@ -41,7 +41,7 @@ export const Parceiro = () => {
                 setLoading(false)
             }
         }).catch((error) => {
-            alert('timeout')
+            alert(error)
             setLoading(false)
         })
     }
