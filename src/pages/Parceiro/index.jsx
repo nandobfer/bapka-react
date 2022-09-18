@@ -35,7 +35,7 @@ export const Parceiro = () => {
             if (response.data.error) {
                 alert(response.data.error);
             } else {
-                navigate('/painel/', {state: response.data})
+                navigate('/painel/', {state: {cliente: response.data, parceiro: parceiro}})
             }
             setLoading(false);
         }).catch((error) => {

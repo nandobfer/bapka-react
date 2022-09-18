@@ -4,11 +4,13 @@ import { AreaTitle } from '../../components/AreaTitle';
 import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { HistoryContainer } from '../../components/HistoryContainer';
 import { MainContainer } from '../../components/MainContainer';
+import { api } from '../../api'
 import colors from '../../_colors.scss';
 import './style.scss'
 
 export const Painel = () => {
-    const cliente = useLocation().state;
+    const cliente = useLocation().state.cliente;
+    const parceiro = useLocation().state.parceiro;
     const navigate = useNavigate();
 
     const [cupons, setCupons] = useState(0);
@@ -30,11 +32,16 @@ export const Painel = () => {
     }
 
     const changeCupons = () => {
-        alert()
-    }
-
-    const resetCupons = () => {
-        alert()
+        const data = {
+            id_cliente: cliente.id,
+            id_parceiro: parceiro.id,
+            quantidade: cupons,
+            total: cliente.cupons + cupons,
+        }
+        console.log(data);
+        api.post('/modificar_cupons/', data).then((response) => {
+            console.log(response.data);
+        })
     }
 
     return (
@@ -79,7 +86,7 @@ export const Painel = () => {
                                     />
                                 <CustomButton 
                                     text='Limpar'
-                                    action={resetCupons}
+                                    action={() => {setCupons(0)}}
                                     border='0.2vw'
                                     font_size='0.85vw'
                                     width='5vw'
