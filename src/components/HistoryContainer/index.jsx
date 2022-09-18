@@ -17,7 +17,7 @@ export const HistoryContainer = ({historico}) => {
                 {historico.map(item => {
                     return (
                         <HistoryData 
-                            key={item} 
+                            key={historico.indexOf(item)} 
                             historico={item} 
                         />
                     )
