@@ -20,8 +20,8 @@ export const Parceiro = () => {
     const parceiro = location.state;
     // console.log(colors)
     // console.log(parceiro)
+    console.log('location')
     console.log(location)
-
 
     const searchCpf = (values) => {
         setLoading(true)

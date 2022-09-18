@@ -13,9 +13,9 @@ export const Painel = () => {
     const location_state = useLocation().state;
     const [cliente, setCliente] = useState(location_state.cliente);
     const [loading, setLoading] = useState(false);
-    console.log('CLIENTE');
-    console.log(cliente);
-    const parceiro = useLocation().state.parceiro;
+    const parceiro = location_state.parceiro;
+    // const setParceiro = () => location_state.setParceiro;
+    console.log(cliente, parceiro);
     const navigate = useNavigate();
 
     const [cupons, setCupons] = useState(0);
@@ -33,7 +33,19 @@ export const Painel = () => {
     }
 
     const goBack = () => {
-        navigate(-1);
+        setLoading(true);
+        api.post('/fetch_store/', {id: parceiro.id}).then((response) => {
+            if (response.data.error) {
+                alert(response.data.error);
+            } else {
+
+                navigate('/parceiro/', {state: response.data});
+            }
+            setLoading(false);
+        }).catch((error) => {
+            alert(error);
+            setLoading(false);
+        })
     }
 
     const changeCupons = () => {
@@ -42,16 +54,21 @@ export const Painel = () => {
             id_cliente: cliente.id,
             id_parceiro: parceiro.id,
             cpf: cliente.cpf,
+            nome_cliente: cliente.nome,
+            nome_parceiro: parceiro.loja,
             quantidade: cupons,
             total: cliente.cupons + cupons,
         }
+        console.log('modificar cupons');
         console.log(data);
         api.post('/modificar_cupons/', data).then((response) => {
+            console.log('resposta')
             console.log(response.data);
             if (response.data.error) {
                 alert(response.data.error);
             } else {
                 setCliente(response.data);
+                // setParceiro(response.data.parceiro);
                 setCupons(0);
             }
             setLoading(false);
