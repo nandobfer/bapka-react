@@ -20,11 +20,8 @@ export const Parceiro = () => {
     const parceiro = location.state;
     // console.log(colors)
     // console.log(parceiro)
+    console.log(location)
 
-
-    const onExit = () => {
-        window.location.href = '/'
-    }
 
     const searchCpf = (values) => {
         setLoading(true)
@@ -55,7 +52,7 @@ export const Parceiro = () => {
     })
 
     const toSignUp = () => {
-        navigate('/cadastrar/', {state: parceiro})
+        navigate('/cadastrar/', {state: parceiro});
     }
 
     return (

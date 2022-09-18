@@ -13,14 +13,46 @@ import { NewClientForm } from '../../components/NewClientForm';
 export const Cadastro = () => {
 
     const [loading, setLoading] = useState(false);
+    const [new_client, setNew_client] = useState(false);
     const location = useLocation();
     const parceiro = location.state;
     const navigate = useNavigate();
+
+    const [cliente, setCliente] = useState({});
 
     const goBack = () => {
         navigate(-1);
     }
 
+    const formik = useFormik({
+        initialValues: {
+            search_cpf: '',
+        },
+        onSubmit: values => searchCpf(values),
+    });
+
+    const searchCpf = (values) => {
+        setLoading(true)
+        const data = {
+            id: parceiro.id,
+            cpf: values.search_cpf,
+        }
+        console.log(data)
+        api.post('/search_cpf/', data).then((response) => {
+            console.log(response.data);
+            if (response.data.error) {
+                setCliente({cpf: data.cpf});
+                setNew_client(true);
+            } else {
+                setCliente(response.data);
+                setNew_client(true);
+            }
+            setLoading(false);
+        }).catch((error) => {
+            alert(error);
+            setLoading(false);
+        })
+    }
 
     return (
         <section>
@@ -40,10 +72,24 @@ export const Cadastro = () => {
                             />
                         </div>
                     </div>
-                    <NewClientForm 
-                        parceiro={parceiro}
-                        setLoading={setLoading}
-                    />
+                    {new_client ? 
+                        <NewClientForm 
+                            parceiro={parceiro}
+                            setLoading={setLoading}
+                            cliente={cliente}
+                        /> : 
+                        <form onSubmit={formik.handleSubmit}>
+                            <CustomInput
+                                id='search_cpf'
+                                type='text'
+                                placeholder='CPF'
+                                formik={formik}
+                                required={true}
+                            />
+                            <CustomButton 
+                                text='Pesquisar'
+                            />
+                        </form>}
                 </section>
             </MainContainer>
         </section>

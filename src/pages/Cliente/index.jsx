@@ -1,9 +1,7 @@
 import './style.scss'
 import { useLocation } from 'react-router-dom'
 import { MainContainer } from '../../components/MainContainer';
-import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { useState } from 'react';
-import colors from '../../_colors.scss'
 import { HistoryContainer } from '../../components/HistoryContainer';
 import { AreaTitle } from '../../components/AreaTitle';
 

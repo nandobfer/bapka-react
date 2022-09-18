@@ -4,15 +4,16 @@ import { CustomButton } from '../CustomButton/CustomButton';
 import { CustomInput } from '../CustomInput';
 import './style.scss'
 
-export const NewClientForm = ({parceiro, setLoading}) => {
+export const NewClientForm = ({parceiro, cliente, setLoading}) => {
     let inputs = [];
+    console.log(cliente)
 
     const formik = useFormik({
         initialValues: {
-            input_nome: '',
-            input_telefone: '',
-            input_email: '',
-            input_cpf: '',
+            input_nome: cliente.nome,
+            input_telefone: cliente.telefone,
+            input_email: cliente.email,
+            input_cpf: cliente.cpf,
             input_senha: '',
             input_confirmacao: '',
         },
