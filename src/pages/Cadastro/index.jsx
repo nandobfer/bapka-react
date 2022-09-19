@@ -3,12 +3,11 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { CustomButton } from '../../components/CustomButton/CustomButton';
 import { CustomInput } from '../../components/CustomInput';
 import { MainContainer } from '../../components/MainContainer';
-import './style.scss'
-import colors from '../../_colors.scss'
 import { LoadingScreen } from '../../components/LoadingScreen';
 import { useState } from 'react';
 import { api } from '../../api';
 import { NewClientForm } from '../../components/NewClientForm';
+import './style.scss'
 
 export const Cadastro = () => {
 

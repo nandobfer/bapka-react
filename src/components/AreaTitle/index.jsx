@@ -1,7 +1,6 @@
 import { CustomButton } from '../CustomButton/CustomButton'
-import './style.scss'
-import colors from '../../_colors.scss'
 import { useNavigate } from 'react-router-dom'
+import './style.scss'
 
 export const AreaTitle = ({user_type, button}) => {
 
