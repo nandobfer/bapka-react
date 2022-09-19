@@ -19,6 +19,8 @@ export const AreaTitle = ({user_type, button}) => {
                         text={button.text}
                         border='0.2vw' 
                         action={button.action}
+                        width={button.width}
+                        deactivated={button.deactivated}
                     /> : null}
                 </div>
             </div>

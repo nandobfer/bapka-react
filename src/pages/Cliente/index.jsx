@@ -1,18 +1,21 @@
-import './style.scss'
 import { useLocation } from 'react-router-dom'
 import { MainContainer } from '../../components/MainContainer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HistoryContainer } from '../../components/HistoryContainer';
 import { AreaTitle } from '../../components/AreaTitle';
+import { api } from '../../api'
+import './style.scss'
 
 
 export const Cliente = () => {
     const location = useLocation();
     const cliente = location.state;
-    console.log(cliente)
 
     const [active_tab1, setActive_tab1] = useState(true)
     const [active_tab2, setActive_tab2] = useState(false)
+
+    const [loja, setLoja] = useState({});
+    // const [cupons, setCupons] = useState(0);
 
     const tabs = {
         first: active_tab1,
@@ -22,17 +25,26 @@ export const Cliente = () => {
     }
 
     const onClickTab1 = (event) => {
-        tabs.setFirst(true)
-        tabs.setSecond(false)
+        tabs.setFirst(true);
+        tabs.setSecond(false);
     }
 
     const onClickTab2 = (event) => {
-        tabs.setSecond(true)
-        tabs.setFirst(false)
+        tabs.setSecond(true);
+        tabs.setFirst(false);
     }
 
     // MOCADO ------
     cliente.cupons = 0;
+
+    // will run only once when the component is loaded
+    useEffect(() => {
+        // getLojas();
+        console.log(cliente)
+        setLoja(cliente.lojas[0]);
+        console.log(loja);
+    }, []);
+    
 
     return (
         <section>
@@ -42,14 +54,15 @@ export const Cliente = () => {
                         <AreaTitle 
                             user_type='cliente'
                             button={{
-                                text: 'Inserir código promocional',
-                                action: alert
+                                text: 'Lojas',
+                                action: alert,
+                                width: '8vw',
                             }}
                         />
 
                         <div className="cliente-info-container">
                             <h1>Olá, {cliente.nome.split(' ')[0]}!<span>IDC: {cliente.id}</span></h1>
-                            <h3>Você possui <span>{cliente.cupons}</span> cupons!</h3>
+                            <h3>Você possui <span>{loja.cupons}</span> cupons na loja {loja.loja.split(' ')[0]}!</h3> 
                         </div>
 
                         <div className="how-to-wrapper">
