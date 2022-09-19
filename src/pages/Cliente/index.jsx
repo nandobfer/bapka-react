@@ -62,7 +62,7 @@ export const Cliente = () => {
 
                         <div className="cliente-info-container">
                             <h1>Olá, {cliente.nome.split(' ')[0]}!<span>IDC: {cliente.id}</span></h1>
-                            <h3>Você possui <span>{loja.cupons}</span> cupons na loja {loja.loja.split(' ')[0]}!</h3> 
+                            <h3>Você possui <span>{loja.cupons}</span> cupons na loja {loja.loja}!</h3> 
                         </div>
 
                         <div className="how-to-wrapper">
