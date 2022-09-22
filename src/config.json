@@ -1,5 +1,6 @@
 {
     "api": "https://cupons.bapkasorvetes.com.br:4000",
     "_api": "http://localhost:4000",
+    "_api": "http://localhost:4000/api/v1/",
     "timeout": 10
 }
