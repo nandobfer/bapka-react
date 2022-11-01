@@ -8,6 +8,7 @@ import './style.scss'
 
 
 export const Cliente = () => {
+    const loaded = true;
     const location = useLocation();
     const cliente = location.state;
 
@@ -43,7 +44,7 @@ export const Cliente = () => {
         console.log(cliente)
         setLoja(cliente.lojas[0]);
         console.log(loja);
-    }, []);
+    }, [loaded]);
     
 
     return (
