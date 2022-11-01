@@ -16,7 +16,7 @@ export const HistoryData = ({historico, painel}) => {
             <section className="history-data-container">
                 <div className="pontinho" style={painel ? {backgroundColor: 'white'} : null}></div>
                 <div>
-                    <p className="user-type" style={p_style}>{historico.alvo}: <span style={span_style} className="user-name">{historico.nome} - ID{historico.alvo[0].toUpperCase()}: <span style={span_style} className="user-id">{historico.id}</span></span></p>
+                    <p className="user-type" style={p_style}>{historico.alvo.slice(0,1).toUpperCase()+historico.alvo.slice(1)}: <span style={span_style} className="user-name">{historico.nome} - ID{historico.alvo[0].toUpperCase()}: <span style={span_style} className="user-id">{historico.id}</span></span></p>
                     <p style={p_style}>Data: <span style={span_style}>{historico.data}</span></p>
                     <p style={p_style}>Horário: <span style={span_style}>{historico.hora}</span></p>
                     <p style={p_style}>Quantidade: <span style={span_style}>{Math.abs(historico.quantidade)}</span><span className={`operacao-${historico.operacao.toLowerCase()}`}>{historico.operacao}{Math.abs(historico.quantidade) > 1 ? 's' : null}</span></p>
