@@ -23,6 +23,7 @@ export const HistoryContainer = ({historico, title, painel}) => {
 
             <div className="history-data-wrapper" >
                 {historico.map(item => {
+                    if (historico.indexOf(item) == 2) item.last = true;
                     return (
                         <HistoryData 
                             key={historico.indexOf(item)} 
