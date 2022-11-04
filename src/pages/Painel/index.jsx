@@ -55,7 +55,11 @@ export const Painel = () => {
             if (response.data.error) {
                 alert(response.data.error);
             } else {
-                setCliente(response.data);
+                setCliente({
+                    ...cliente,
+                    historico: response.data.historico,
+                    cupons: response.data.cupons,
+                });
                 // setParceiro(response.data.parceiro);
                 setCupons(0);
             }
