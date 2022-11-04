@@ -9,14 +9,17 @@ import { LoadingScreen } from '../../components/LoadingScreen'
 import { HistoryContainer } from '../../components/HistoryContainer'
 import { AreaTitle } from '../../components/AreaTitle'
 import './style.scss'
+import { useEffect } from 'react'
+import { useCallback } from 'react'
 
 export const Parceiro = () => {
     
     const [loading, setLoading] = useState(false);
+    const loaded = false;
     
     const location = useLocation();
     const navigate = useNavigate();
-    const parceiro = location.state;
+    const [parceiro, setParceiro] = useState(location.state)
     // console.log(colors)
     // console.log(parceiro)
     console.log('location')
@@ -53,6 +56,15 @@ export const Parceiro = () => {
     const toSignUp = () => {
         navigate('/cadastrar/', {state: parceiro});
     }
+
+    useEffect(() => {
+        api.post('/get_history', {id: parceiro.id, user_type: 'parceiro'}).then((response) => {
+            setParceiro({
+                ...parceiro,
+                historico: response.data.historico,
+            })
+        })
+    }, [loaded])
 
     return (
         <section>
