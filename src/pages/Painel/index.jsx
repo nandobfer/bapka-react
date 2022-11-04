@@ -33,19 +33,7 @@ export const Painel = () => {
     }
 
     const goBack = () => {
-        setLoading(true);
-        api.post('/fetch_store/', {id: parceiro.id}).then((response) => {
-            if (response.data.error) {
-                alert(response.data.error);
-            } else {
-
-                navigate('/parceiro/', {state: response.data});
-            }
-            setLoading(false);
-        }).catch((error) => {
-            alert(error);
-            setLoading(false);
-        })
+        navigate(-1)
     }
 
     const changeCupons = () => {
