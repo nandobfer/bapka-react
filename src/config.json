@@ -1,5 +1,0 @@
-{
-    "api": "https://agenciaboz.com.br:4000/api/v1/bapka/",
-    "_api": "http://localhost:4000/api/v1/bapka/",
-    "timeout": 10
-}
