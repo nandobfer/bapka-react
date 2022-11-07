@@ -1,10 +1,12 @@
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import { api } from '../../api';
 import { CustomButton } from '../CustomButton/CustomButton';
 import { CustomInput } from '../CustomInput';
 import './style.scss'
 
 export const NewClientForm = ({parceiro, cliente, new_client, setLoading}) => {
+    const navigate = useNavigate();
     let inputs = [];
     console.log(cliente)
     console.log(new_client)
@@ -38,12 +40,15 @@ export const NewClientForm = ({parceiro, cliente, new_client, setLoading}) => {
         };
         console.log(data);
 
-        api.post('/new_client/', data).then((response) => {
+        api.post('/cadastrar_cliente/', data).then((response) => {
             console.log(response.data);
             if (response.data.error) {
                 alert(response.data.error);
             } else {
-                alert(`Sucesso: ${response.data}`);
+                if (response.data.success) {
+                    alert('Cliente cadastrado')
+                    navigate(-1)
+                }
             }
             setLoading(false);
         }).catch((error) => {
